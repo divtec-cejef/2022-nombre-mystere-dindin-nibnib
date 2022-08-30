@@ -25,7 +25,7 @@ const main = () => {
 	let nbMystere = tireNombre(0, 100);
 	let reponse;
 
-	while (reponse !== nbMystere) {
+	do {
 		/* Demander à l'utilisateur d'entrer un nombre entre 0 et 100. */
 		reponse = parseInt(prompt("Entrez un nombre entre 0 et 100"));
 		nbEssai++;
@@ -40,7 +40,7 @@ const main = () => {
 		} else if (reponse < nbMystere) {
 			alert("C'est plus !");
 		}
-	}
+	} while (reponse !== nbMystere);
 	alert("Vous avez trouvé après " + nbEssai + " essai(s)");
 }; // main IIFE
 
