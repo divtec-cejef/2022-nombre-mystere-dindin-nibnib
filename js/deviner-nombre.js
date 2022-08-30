@@ -21,9 +21,8 @@ const main = () => {
 	}
 
 	/* Déclaration des variables. */
-	let nbEssai = 0;
+	let nbEssai, reponse = 0;
 	let nbMystere = tireNombre(0, 100);
-	let reponse;
 
 	do {
 		/* Demander à l'utilisateur d'entrer un nombre entre 0 et 100. */
