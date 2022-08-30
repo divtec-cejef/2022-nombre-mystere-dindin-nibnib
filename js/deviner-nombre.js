@@ -8,7 +8,8 @@
 // Main IIFE (Immediately-Invoked Function Expression, se prononce "iffy")
 const main = () => {
 	"use strict";
-
+	const MAX = 100;
+	const MIN = 0;
 
 	/**
 		 * Retourne un nombre entier aléatoire compris entre min et max
@@ -22,14 +23,14 @@ const main = () => {
 
 	/* Déclaration des variables. */
 	let nbEssai, reponse = 0;
-	let nbMystere = tireNombre(0, 100);
+	let nbMystere = tireNombre(MIN, MAX);
 
 	do {
 		/* Demander à l'utilisateur d'entrer un nombre entre 0 et 100. */
-		reponse = parseInt(prompt("Entrez un nombre entre 0 et 100"));
+		reponse = parseInt(prompt(`Entrez un nombre entre ${MIN} et ${MAX} :`));
 		nbEssai++;
 
-		if (isNaN(reponse) || reponse < 0 || reponse > 100) {
+		if (isNaN(reponse) || reponse < MIN || reponse > MAX) {
 			alert("Vous n'avez pas entré un nombre valide");
 			continue;
 		}
