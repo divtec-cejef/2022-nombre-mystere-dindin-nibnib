@@ -1,16 +1,14 @@
 /**
 * Jeu du nombre mystère
-* @author  Steve Fallet
+* @author  Odin Beuchat
 * @version 0.1
-* @since   2018-09-09 (date de création)
+* @since   2022-08-30 (date de création)
 */
 
 // Main IIFE (Immediately-Invoked Function Expression, se prononce "iffy")
 const main = () => {
 	"use strict";
 
-	/* Déclaration des variables. */
-	let nbEssai;
 
 	/**
 		 * Retourne un nombre entier aléatoire compris entre min et max
@@ -18,22 +16,29 @@ const main = () => {
 		 * @param max
 		 * @returns {number}
 	 */
-	function tireNombre(min = 0, max = 100) {
+	function tireNombre(min = 0, max) {
 		return Math.floor(Math.random() * (max - min) + min);
 	}
 
-	/* Déclarer une variable appelée `nbMystere` et lui affecter la valeur de la fonction `tireNombre()` */
-	let nbMystere = tireNombre();
+	/* Déclaration des variables. */
+	let nbEssai = 0;
+	let nbMystere = tireNombre(0, 100);
+	let reponse;
 
 	while (reponse !== nbMystere) {
 		/* Demander à l'utilisateur d'entrer un nombre entre 0 et 100. */
-		let reponse = parseInt(prompt("Entrez un nombre entre 0 et 100"));
+		reponse = parseInt(prompt("Entrez un nombre entre 0 et 100"));
 		nbEssai++;
 
+		if (isNaN(reponse) || reponse < 0 || reponse > 100) {
+			alert("Vous n'avez pas entré un nombre valide");
+			continue;
+		}
+
 		if (reponse > nbMystere) {
-			alert("C'est moins");
+			alert("C'est moins !");
 		} else if (reponse < nbMystere) {
-			alert("C'est plus");
+			alert("C'est plus !");
 		}
 	}
 	alert("Vous avez trouvé après " + nbEssai + " essai(s)");
