@@ -6,17 +6,37 @@
 */
 
 // Main IIFE (Immediately-Invoked Function Expression, se prononce "iffy")
-(function main() {
-    "use strict";
+const main = () => {
+	"use strict";
 
-    /**
-     * Retourne un nombre entier aléatoire compris entre min et max
-     * @param min
-     * @param max
-     * @returns {number}
-     */
-    function tireNombre(min, max) {
-        return Math.floor(Math.random() * (max - min) + min);
-    }
+	/* Déclaration des variables. */
+	let nbEssai;
 
-}()); // main IIFE
+	/**
+		 * Retourne un nombre entier aléatoire compris entre min et max
+		 * @param min
+		 * @param max
+		 * @returns {number}
+	 */
+	function tireNombre(min = 0, max = 100) {
+		return Math.floor(Math.random() * (max - min) + min);
+	}
+
+	/* Déclarer une variable appelée `nbMystere` et lui affecter la valeur de la fonction `tireNombre()` */
+	let nbMystere = tireNombre();
+
+	while (reponse !== nbMystere) {
+		/* Demander à l'utilisateur d'entrer un nombre entre 0 et 100. */
+		let reponse = parseInt(prompt("Entrez un nombre entre 0 et 100"));
+		nbEssai++;
+
+		if (reponse > nbMystere) {
+			alert("C'est moins");
+		} else if (reponse < nbMystere) {
+			alert("C'est plus");
+		}
+	}
+	alert("Vous avez trouvé après " + nbEssai + " essai(s)");
+}; // main IIFE
+
+main();
