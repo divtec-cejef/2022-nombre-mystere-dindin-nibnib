@@ -22,24 +22,23 @@ const main = () => {
 	}
 
 	/* Déclaration des variables. */
-	let nbEssai, reponse = 0;
+	let nbEssai = 0, reponse = 0;
 	let nbMystere = tireNombre(MIN, MAX);
 
-	do {
-		/* Demander à l'utilisateur d'entrer un nombre entre 0 et 100. */
-		reponse = parseInt(prompt(`Entrez un nombre entre ${MIN} et ${MAX} :`));
-		nbEssai++;
+	reponse = parseInt(prompt(`Entrez un nombre entre ${MIN} et ${MAX} :`));
 
+	do {
 		if (isNaN(reponse) || reponse < MIN || reponse > MAX) {
 			alert("Vous n'avez pas entré un nombre valide");
 			continue;
 		}
 
 		if (reponse > nbMystere) {
-			alert("C'est moins !");
+			reponse = parseInt(prompt("C'est moins !"));
 		} else if (reponse < nbMystere) {
-			alert("C'est plus !");
+			reponse = parseInt(prompt("C'est plus !"));
 		}
+		nbEssai++;
 	} while (reponse !== nbMystere);
 	alert("Vous avez trouvé après " + nbEssai + " essai(s)");
 }; // main IIFE
