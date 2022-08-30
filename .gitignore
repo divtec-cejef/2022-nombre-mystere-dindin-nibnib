@@ -1,3 +1,4 @@
 # Ignorer le contenu du dossier .idea/
 # qui contient les paramètres du projet WebStorm
 .idea/
+.vscode/
