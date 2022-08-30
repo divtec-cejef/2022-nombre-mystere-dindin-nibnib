@@ -24,19 +24,19 @@ const main = () => {
 	/* Déclaration des variables. */
 	let nbEssai = 0, reponse = 0;
 	let nbMystere = tireNombre(MIN, MAX);
-
-	reponse = parseInt(prompt(`Entrez un nombre entre ${MIN} et ${MAX} :`));
+	let message = `Entrez un nombre entre ${MIN} et ${MAX} :`;
 
 	do {
+		reponse = parseInt(prompt(message));
 		if (isNaN(reponse) || reponse < MIN || reponse > MAX) {
 			alert("Vous n'avez pas entré un nombre valide");
 			continue;
 		}
 
 		if (reponse > nbMystere) {
-			reponse = parseInt(prompt("C'est moins !"));
+			message = "C'est moins !";
 		} else if (reponse < nbMystere) {
-			reponse = parseInt(prompt("C'est plus !"));
+			message = "C'est plus !";
 		}
 		nbEssai++;
 	} while (reponse !== nbMystere);
